@@ -6,10 +6,7 @@
 $error = "";
 $outValidate = [];
 $success = '';
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
-if (!empty($_POST)){
+ if (!empty($_POST)){
 $validate = new Validate($_POST);
 $validate->addRule("name",'string',2,50);
 $validate->addRule("email",'string',1,100);
@@ -23,6 +20,8 @@ if (!$validate->isValid()){
     $database ->insert($outValidate);
     $success= 'success';
 }
+    header('location: index.php');
+
 }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

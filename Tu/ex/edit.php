@@ -28,17 +28,16 @@ if (!empty($_POST)){
     $validate->addRule('phone','string',1,12);
     $validate->run();
     $outValidate = $validate->getResult();
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $adress = $_POST['adress'];
-    $phone = $_POST['phone'];
-     $query2 = "update `employee` set `name` = '$name', `email`= '$email' ,`adress`='$adress'  where `id` = '$id'";
-    $database->query($query2);
+        $where =array(
+        array('id',$id,'')
+    );
+   $database->update($outValidate,$where);
     if (!$validate->isValid()){
         $error =  $validate->showErrors();
-    }else{
-        $success= 'success';
+    }else {
+        $success = 'success';
     }
+    header('location: index.php');
 }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
