@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Manager Student</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,20 +23,23 @@
       session_start();
       $check_session = isset($_SESSION['user_name']) ? true : false;
       if (!$check_session) {
-        header("Location: login.php");
+        header("Location:login.php");
       }
      ?>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Manager Employee</a>
+        <a class="navbar-brand" href="#">Manager Student</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="upload.php">Add New Employee</a>
+              <a class="nav-link" href="upload.php">Add Student</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.php">Logout</a>
             </li>
           </ul>
         </div>
@@ -48,72 +51,61 @@
 
       <div class="row">
 
-      <!-- /.col-lg-3 -->
+        <!-- /.col-lg-3 -->
 
-        <div class="col-lg-9" style="margin-top: 10px">
-          <div class="row">
-            <?php
-            include "dbconnection.php";
-            $student = getAllstudent();
+        <div class="col-lg-12" style="margin-top: 10px">
+            <table class = "col-lg-12" border ="1" cellpadding="10">
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+              <?php
+              include "dbconnection.php";
+              $student = getAllstudent();
 
-        			$item_per_page = 3;
-        			$total_page = count($student) / $item_per_page;
-        			$curent_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                $item_per_page = 3;
+                $total_page = count($student) / $item_per_page;
+                $curent_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
-        			$start = $item_per_page * ($curent_page - 1);
-        			$end = $start + $item_per_page;
-             for($i = $start; $i < $end && $i < count($student); $i++) {
-               $students = $student[$i];
-            ?>
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                    <p><?php echo $students['name'];?></p>
-                    <h5><?php echo $students['email'];?></h5>
-                    <p><?php echo $students['address'];?></p>
-                    <p><?php echo $students['phone'];?></p>
-                </div>
-                <div class="card-footer">
-                  <a href="edit.php?id=<?php echo $students['id']?>">Sửa</a>
-                  <a href="delete.php?id=<?php echo $students['id']?>">Xóa</a>
-                  <form class="" action="delete.php" method="get" onsubmit="return confirm('Sure ?');">
-                      <input type="hidden" name="id" value="<?php echo $students['id'] ?>">
-                      <input type="submit" name="" value="Xóa">
-                  </form>
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-          <?php } ?>
-
-
-
-
-
-
-
-
-
-
-          </div>
+                $start = $item_per_page * ($curent_page - 1);
+                $end = $start + $item_per_page;
+               for($i = $start; $i < $end && $i < count($student); $i++) {
+                 $stu = $student[$i];
+              ?>
+              <tr>
+                <td><?php echo $stu['Name'];?></td>
+                <td><?php echo $stu['Email'];?></td>
+                <td><?php echo $stu['Address'];?></td>
+                <td><?php echo $stu['Phone'];?></td>
+                <td><a href="edit.php?id=<?php echo $stu['id']?>">Sửa</a></td>
+                <td><form class="" action="delete.php" method="get" onsubmit="return confirm('Sure ?');">
+                    <input type="hidden" name="id" value="<?php echo $stu['id'] ?>">
+                    <input type="submit" name="" value="Xóa">
+                </form></td>
+              </tr>
+            <?php } ?>
+            </table>
           <!-- /.row -->
-			<nav aria-label="Page navigation example">
-			  <ul class="pagination">
-				<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-				<?php
-					for($p = 0; $p < $total_page; $p++){
-				?>
-						<li class="page-item">
-							<a class="page-link" href="index.php?page=<?php echo $p +1 ?>"><?php echo $p +1?></a>
-						</li>
-				<?php	}
+      			<nav aria-label="Page navigation example">
+      			  <ul class="pagination">
+      				<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      				<?php
+      					for($p = 0; $p < $total_page; $p++){
+      				?>
+      						<li class="page-item">
+      							<a class="page-link" href="index.php?page=<?php echo $p +1 ?>"><?php echo $p +1?></a>
+      						</li>
+      				<?php	}
 
-				?>
+      				?>
 
-				<li class="page-item"><a class="page-link" href="#">Next</a></li>
-			  </ul>
-			</nav>
+      				<li class="page-item"><a class="page-link" href="#">Next</a></li>
+      			  </ul>
+      			</nav>
 
         </div>
         <!-- /.col-lg-9 -->
