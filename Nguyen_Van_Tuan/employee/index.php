@@ -81,9 +81,9 @@
                 <td><?php echo $stu['Email'];?></td>
                 <td><?php echo $stu['Address'];?></td>
                 <td><?php echo $stu['Phone'];?></td>
-                <td><a href="edit.php?id=<?php echo $stu['id']?>">Sửa</a></td>
+                <td><a href="edit.php?id=<?php echo $stu['ID']?>">Sửa</a></td>
                 <td><form class="" action="delete.php" method="get" onsubmit="return confirm('Sure ?');">
-                    <input type="hidden" name="id" value="<?php echo $stu['id'] ?>">
+                    <input type="hidden" name="id" value="<?php echo $stu['ID'] ?>">
                     <input type="submit" name="" value="Xóa">
                 </form></td>
               </tr>
