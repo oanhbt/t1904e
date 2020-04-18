@@ -20,7 +20,7 @@
                     <h2>Manage Employee</h2>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
-                    <a href="index.php?page_layout=add_product" class="btn btn-success">
+                    <a href="add.php" class="btn btn-success">
                     <i class="glyphicon glyphicon-plus"></i> Add new employee
                     </a>
                 </div>
@@ -46,7 +46,8 @@
                                 <tbody>
 
                                     <?php 
-                                        $abc = seclectAllEmp();                                       
+                                    include"dbconnect.php";
+                                        $abc = seclectAllEmp();                      
                                       
                                             
                                             $item_per_page = 3;
@@ -61,16 +62,17 @@
 
                                         <tr>
                                             <td style=""><?php echo $emp['name'];?> </td>
-                                            <td style="">nguyenminhan696@gamil.com</td>
-                                            <td style="">209 an duong vuong</td>
-                                            <td style="">01234567989</td>
+                                            <td style=""><?php echo $emp['email'];?></td>
+                                            <td style=""><?php echo $emp['address'];?></td>
+                                            <td style=""><?php echo $emp['phone'];?></td>
                                         
-                                    <?php } ?>
+                                    
                                             <td class="form-group">
-                                                <a href="edit.php?id= <?php   ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i>sửa</a>
-                                                <a href="edit.php" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i>xóa</a>
+                                                <a href="edit.php?id=<?php echo $emp['id'];?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i>sửa</a>
+                                                <a href="delete.php?id=<?php echo $emp['id'];?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i>xóa</a>
                                             </td>
-                                        </tr>                                                                       
+                                        </tr>       
+                                    <?php } ?>                                                                
                                 </tbody>
                             </table>
                             
