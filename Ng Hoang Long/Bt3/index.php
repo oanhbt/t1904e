@@ -93,10 +93,10 @@
 
 			<?php
 			include "dbconnection.php";
-			$employee = getAllEmployees();
+			$emp = getAllEmployees();
 
 			$item_per_page = 3;
-			$total_page = count($employee) / $item_per_page;
+			$total_page = count($emp) / $item_per_page;
 
 			$curent_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
@@ -104,8 +104,8 @@
 			$end = $start + $item_per_page;
 
 
-			for($i = $start; $i < $end && $i < count($employee); $i++) {
-				$employee = $employees[$i];
+			for($i = $start; $i < $end && $i < count($emp); $i++) {
+				$emp1 = $emp[$i];
 			?>
 
 
@@ -114,17 +114,17 @@
                 <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#"> <?php echo $employee['name']?> </a>
+                    <a href="#"> <?php echo $emp1['name']?> </a>
                   </h4>
-                  <h5><?php echo $product['email']?></h5>
-                  <h5><?php echo $product['address']?></h5>
-                  <h5><?php echo $product['phone']?></h5>
+                  <h5><?php echo $emp1['email']?></h5>
+                  <h5><?php echo $emp1['address']?></h5>
+                  <h5><?php echo $emp1['phone']?></h5>
                 </div>
                 <div class="card-footer">
-					<a href="edit.php?id=<?php echo $employee['id']?>">Sửa</a>
+					<a href="edit.php?id=<?php echo $emp1['id']?>">Sửa</a>
 					<!-- <a href="delete.php?id=<?php echo $product['id']?>">Xóa</a> -->
           <form class="" action="delete.php" method="GET" onsubmit="return confirm('Sure ?');" >
-            <input type="hidden" name="id" value="<?php echo $employee['id'] ?>">
+            <input type="hidden" name="id" value="<?php echo $emp1['id'] ?>">
             <input type="submit" name="" value="Xoa">
           </form>
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

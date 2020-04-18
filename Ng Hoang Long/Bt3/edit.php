@@ -2,10 +2,10 @@
 	$id = $_GET['id'];
 	include "dbconnection.php";
 
-	$product = getProductById($id);
+	$product = getEmployeeById($id);
 
-	if(isset($_POST['title'])) {
-		updateProduct($_POST['title'], $_POST['price'], $_POST['des'], $id);
+	if(isset($_POST['name'])) {
+		updateEmployee($_POST['name'], $_POST['email'], $_POST['address'], $_POST['phone'], $id);
 	}
 	header("Location: index.php");
 
@@ -20,9 +20,10 @@
 		<h2>Update Product</h2>
 		<div>
 			<form action="edit.php?id=<?php echo $id ?>" method="POST" enctype="multipart/form-data">
-				Title: <input type="text" name="title" value="<?php echo $product['title'] ?>"/><br/>
-				Price: <input type="text" name="price" value="<?php echo $product['price'] ?>"/><br/>
-				Des: <textarea name="des"><?php echo $product['des'] ?></textarea><br/>
+				Name: <input type="text" name="name" value="<?php echo $emp1['name']?>" /><br/>
+				Email: <input type="text" name="email" value="<?php echo $emp1['email']?>" /><br/>
+				Address: <input type="text" name="address" value="<?php echo $emp1['address']?>" /><br/>
+				Phone: <input type="text" name="phone" value="<?php echo $emp1['phone']?>" /><br/>
 
 				<input type="submit" value="Update"/>
 			</form>

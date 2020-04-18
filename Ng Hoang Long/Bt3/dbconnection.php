@@ -79,9 +79,9 @@
 			return false;
 		}
 
-		$insert = "insert into employee(Name, Email, Address, Phone) values(?, ?, ?, ?)";
+		$insert = "insert into employee(name, email, address, phone) values(?, ?, ?, ?)";
 		$stmt = $conn->prepare($insert);
-		$stmt->bind_param("ssss", $name, $email, $addrees, $phone);
+		$stmt->bind_param("ssss", $name, $email, $address, $phone);
 		$stmt->execute();
 	}
 
