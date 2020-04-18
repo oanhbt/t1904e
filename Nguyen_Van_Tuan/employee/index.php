@@ -34,7 +34,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto"> 
             <li class="nav-item">
               <a class="nav-link" href="upload.php">Add Student</a>
             </li>
@@ -64,8 +64,8 @@
                 <th>Delete</th>
               </tr>
               <?php
-              include "dbconnection.php";
-              $student = getAllstudent();
+              
+              $Emp = selectAllEmp();
 
                 $item_per_page = 3;
                 $total_page = count($student) / $item_per_page;
