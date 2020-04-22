@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// admin
+Route::get('/cate_management', function() {
+  return view('category.list');
+});
+
+Route::get('/cate_management', 'CategoryController@index');
