@@ -25,4 +25,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 /*Route::get('/cate_management', function() {
   return view('category.list');
 });*/
-Route::get('/cate_management', 'CategoryController@index');
+//Route::get('/cate_management', 'CategoryController@index');
+Route::resource('/cate_management', 'CategoryController');
+/*
+Route::get('/cate_management', 'CategoryController@index')->name('cate_management.index');
+Route::get('/cate_management/create', 'CategoryController@create')->name('cate_management.create');
+Route::post('/cate_management', 'CategoryController@store')->name('cate_management.store');
+Route::get('/cate_management/{id}', 'CategoryController@show')->name('cate_management.store');;
+Route::get('/cate_management/{id}/edit', 'CategoryController@edit')->name('cate_management.edit');
+Route::put('/cate_management/{id}', 'CategoryController@update')->name('cate_management.update');;
+Route::delete('/cate_management/{id}', 'CategoryController@destroy')->name('cate_management.destroy');;
+*/
