@@ -33,7 +33,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a href="cate_management" class="nav-item">category manager</a></li>
+                        <li><a href="{{asset('cate_management')}}" class="nav-item">category manager</a></li>
+                        <li><a href="{{asset('post_management')}}" class="nav-item">post manager</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

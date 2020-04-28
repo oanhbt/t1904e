@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/blog/tests" isTestSource="true" packagePrefix="Tests\" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/asm89/stack-cors" />
+      <excludeFolder url="file://$MODULE_DIR$/blog/vendor/barryvdh/laravel-debugbar" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/dnoegel/php-xdg-base-dir" />
@@ -31,6 +32,7 @@
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/laravel/ui" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/blog/vendor/maximebf/debugbar" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/myclabs/deep-copy" />
@@ -76,6 +78,7 @@
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/symfony/css-selector" />
+      <excludeFolder url="file://$MODULE_DIR$/blog/vendor/symfony/debug" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/symfony/error-handler" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/symfony/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/symfony/event-dispatcher-contracts" />

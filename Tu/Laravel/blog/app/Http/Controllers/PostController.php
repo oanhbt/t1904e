@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 use App\Category;
-class CategoryController extends Controller
+
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,11 +14,13 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-
     {
-        $lsCate = Category::all();
-        return view('category.list')->with(['lsCategory'=> $lsCate]);
-
+        //
+       // $allPost = Post::all();
+        $allPost = Post::paginate(1);
+        return view('post.list')->with([
+            'allpost'=>$allPost
+        ]);
     }
 
     /**
@@ -26,7 +30,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
-   return  view('category.create');
+        $allCategory = Category::all();
+        return view('post.create')->with([
+            'allCategory'=>$allCategory
+        ]);
+        //
     }
 
     /**
@@ -37,20 +45,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate(
-            [
-                'name'=>'required|max:255|min:3|unique:categories',
-
-            ]
-        );
-        $cate = new Category();
-        $cate->name = $request->name;
-        $cate->save();
-        $request->session()->flash('success','category successfully');
-        return redirect()->route("cate_management.index");
-
-
+        //
     }
 
     /**
@@ -61,6 +56,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
+        //
     }
 
     /**
@@ -72,9 +68,6 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
-        $cate = Category::find($id);
-        return view('category.edit')->with(['cate'=>$cate]);
-
     }
 
     /**
@@ -86,18 +79,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate(
-            [
-                'name'=>'required|max:255|min:3|unique:categories',
-
-            ]
-        );
-        $cate =  Category::find($id);
-        $cate->name = $request->name;
-        $cate->save();
-        $request->session()->flash('success',' update category successfully');
-        return redirect()->route("cate_management.index");
-
+        //
     }
 
     /**
@@ -106,13 +88,8 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id ,Request $request)
+    public function destroy($id)
     {
-       $cate = Category::find($id);
-       $cate->delete();
-        $request->session()->flash('success','category successfully');
-        return redirect()->route("cate_management.index");
-
-
+        //
     }
 }
