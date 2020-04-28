@@ -27,6 +27,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 });*/
 //Route::get('/cate_management', 'CategoryController@index');
 Route::resource('/cate_management', 'CategoryController');
+Route::resource('/post_management', 'PostController');
+
+
 /*
 Route::get('/cate_management', 'CategoryController@index')->name('cate_management.index');
 Route::get('/cate_management/create', 'CategoryController@create')->name('cate_management.create');
