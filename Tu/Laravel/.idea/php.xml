@@ -96,6 +96,9 @@
       <path value="$PROJECT_DIR$/blog/vendor/opis/closure" />
       <path value="$PROJECT_DIR$/blog/vendor/voku/portable-ascii" />
       <path value="$PROJECT_DIR$/blog/vendor/asm89/stack-cors" />
+      <path value="$PROJECT_DIR$/blog/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/blog/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/blog/vendor/maximebf/debugbar" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

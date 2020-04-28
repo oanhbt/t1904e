@@ -12,6 +12,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
         $lsCate = Category::all();
         return view('category.list')->with(['lsCategory'=> $lsCate]);
@@ -36,7 +37,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
         $request->validate(
             [
                 'name'=>'required|max:255|min:3|unique:categories',
@@ -48,6 +49,8 @@ class CategoryController extends Controller
         $cate->save();
         $request->session()->flash('success','category successfully');
         return redirect()->route("cate_management.index");
+
+
     }
 
     /**
