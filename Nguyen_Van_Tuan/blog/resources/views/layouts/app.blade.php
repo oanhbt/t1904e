@@ -34,7 +34,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item">
-                        <a href="cate_management">Migrate</a>
+                        <a href="cate_management">Category</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="post_management">Post</a>
                       </li>
 
                     </ul>

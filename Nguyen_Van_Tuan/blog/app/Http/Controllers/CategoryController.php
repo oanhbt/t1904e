@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -36,7 +36,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+          [
+            'name' => 'required|max:255|min:3|unique:categories'
+          ]
+        );
+
+        $cate = new Category();
+        $cate->name = $request->name;
+        $cate->save();
+
+        $request->session()->flash('success', 'Category was successfull');
+        return redirect()->route("cate_management.index");
     }
 
     /**
@@ -58,7 +69,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cate = Category::find($id);
+        return view('category.edit')->with(['cate_' => $cate]);
     }
 
     /**
@@ -70,7 +82,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $request->validate(
+        [
+          'name' => 'required|max:255|min:3|unique:categories'
+        ]
+      );
+
+      $cate = Category::find($id);
+      $cate->name = $request->name;
+      $cate->save();
+
+      $request->session()->flash('success', 'Category was update');
+      return redirect()->route("cate_management.index");
     }
 
     /**
@@ -79,8 +102,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $cate = Category::find($id);
+        $cate->delete();
+        $request->session()->flash('success', 'Category was deleted');
+        return redirect()->route("cate_management.index");
+
     }
 }
