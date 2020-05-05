@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/cate_manager','Categorycontroller');
+Route::resource('/apartment_info','ApartmentController');
