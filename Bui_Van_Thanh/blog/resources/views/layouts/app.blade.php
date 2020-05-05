@@ -38,6 +38,9 @@
                         <li class="nav-item">
                           <a href="cate_manager" class="nav-link">Category manager</a>
                         </li>
+                        <li class="nav-item">
+                          <a href="apartment_info" class="nav-link text-primary text-bold">Apartment manager_ThànhBV</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
