@@ -34,8 +34,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item"><a class="nav-link" href="cate_management">category manager</a></li>
-                      <li class="nav-item"><a class="nav-link" href="post_management">post manager</a></li>
-
+                      <li class="nav-item">
+                         <a href="apartment_info" class="nav-link text-primary text-bold">Apartment manager</a>
+                       </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

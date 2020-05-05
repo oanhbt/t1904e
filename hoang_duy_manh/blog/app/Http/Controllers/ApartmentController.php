@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
-use App\Category;
+use App\apartments;
 
-class PostController extends Controller
+class ApartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //$allPost = Post::all();
-        $allPost = Post::paginate(3);
-        return view('post.list')->with(['allPost' => $allPost]);
+        $lstApartment = apartments::paginate(6);
+        return view("apartment.index")->with(['lstApartment' => $lstApartment]);
     }
 
     /**
@@ -27,8 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $allCategory = Category::all();
-        return view('post.create')->with(['allCategory' => $allCategory]);
+        //
     }
 
     /**
