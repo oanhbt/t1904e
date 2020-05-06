@@ -11,8 +11,13 @@
       </div>
     @endif
 
-    <form method="post" action="{{route('post_management.store')}}">
+    <form method="post" action="{{route('post_management.store')}}" enctype="multipart/form-data">
       @csrf
+      <div class="form-group">
+        <label for="name">Cover Image</label>
+        <input type="file" class="form-control" id="file" name="file" placeholder="Enter Title">
+      </div>
+
       <div class="form-group">
         <label for="name">Title</label>
         <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title">
@@ -30,9 +35,9 @@
 
       <div class="form-group">
         <label for="name">Category</label>
-        <select name="is_active">
+        <select name="category">
           @foreach($allCategory as $cate)
-            <option value="{{$cate->idea}}">{{$cate->name}}</option>
+            <option value="{{$cate->id}}">{{$cate->name}}</option>
           @endforeach
         </select>
       </div>
@@ -50,4 +55,8 @@
 
     </form>
   </div>
+
+  <script>
+    CKEDITOR.replace( 'content' );
+  </script>
 @endsection

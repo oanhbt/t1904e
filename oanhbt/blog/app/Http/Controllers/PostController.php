@@ -39,7 +39,40 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $request->validate(
+        [
+          'title' => 'required|max:255|min:3|unique:posts,title',
+          'summary' => 'required|max:255|min:3',
+          'content' => 'required'
+         ]
+      );
+
+      $post = new Post();
+      $post->title = $request->title;
+      $post->summary = $request->summary;
+      $post->content = $request->content;
+      $post->category_id = $request->category;
+      $post->is_active = $request->is_active;
+
+      $file = $request->file;
+      $upload_image = '';
+      if($file != null) {
+        $image_name = $file->getClientOriginalName() . "." . $file->getClientOriginalExtension();
+        $image_name = time()."_".$image_name;
+        $image_public_path = public_path("images");
+        $file->move($image_public_path, $image_name);
+        $upload_image = "images/".$image_name;
+      }
+
+      $post->cover = $upload_image;
+
+      $user = auth()->user();
+      $post->user_id = $user->id;
+
+      $post->save();
+
+      $request->session()->flash('success', 'Post was successful!');
+      return redirect()->route("post_management.index");
     }
 
     /**
@@ -61,7 +94,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        $allCategory = Category::all();
+        return view('post.edit')->with(['allCategory' => $allCategory, 'post' => $post]);
     }
 
     /**
@@ -82,8 +117,27 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        $request->session()->flash('success', 'Post was deleted!');
+        return redirect()->route("post_management.index");
+    }
+
+    public function change($id, Request $request) {
+      $post = Post::find($id);
+      if($post->is_active == 1) {
+        $post->is_active = 0;
+      } else {
+        $post->is_active = 1;
+      }
+      $post->save();
+      $request->session()->flash('success', 'Post was changed!');
+      return redirect()->route("post_management.index");
+    }
+
+    public function change_api(Request $request) {
+      dd('test');
     }
 }

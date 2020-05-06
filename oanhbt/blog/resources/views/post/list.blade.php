@@ -18,6 +18,7 @@
       <th>Summary</th>
       <th>Category</th>
       <th>Count comment</th>
+      <th>Status</th>
       <th>Action</th>
 
       @foreach($allPost as $post)
@@ -27,6 +28,19 @@
         <td>{{$post->summary}}</td>
         <td>{{$post->category->name}}</td>
         <td>{{$post->comments->count()}}</td>
+        <td>
+          {{$post->is_active == 1 ? 'Pushlish' : 'Draft'}}
+
+          <form method="POST" action="{{ route('post_management.change', $post->id) }}"
+              onsubmit="confirm('Sure ? ')">
+            @csrf
+            <input type="submit" value="Change" />
+          </form>
+
+          <button id="change_status"
+                  data-id="{{$post->id}}" data-status="{{$post->is_active}}"
+                  onclick="changeStatus(this)">ChangeStatus</button>
+        </td>
         <td>
           <a class="button" href="{{ route('post_management.edit', $post->id) }}">Edit</a>
 
@@ -44,4 +58,17 @@
 
     {{$allPost->links()}}
   </div>
+
+  <script>
+    function changeStatus(element) {
+      var _id = $(element).attr("data-id");
+      var _status = $(element).data('status');
+
+      $.post('api/post_management/changeStatus',
+            {id: _id, status: _status}, 
+            function(data) {
+          alert('OK');
+      });
+    }
+  </script>
 @endsection
