@@ -8,7 +8,7 @@
       <div class="col-md-4 p-3">
         <div class="border p-3" style="min-height: 570px; background-color:#efefef;">
           <p>
-            <img src="images/nha.jpg" alt="" style="max-width:100%;">
+              <img src="images/nha.jpg" alt="" style="max-width:100%;">
           </p>
           <h2>{{$apart->title}}</h2>
           <p><strong>Địa chỉ:</strong> {{$apart->address}}</p>
