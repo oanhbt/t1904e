@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // admin
 //Route::get('/cate_management','CategoryController@index');
 Route::resource('/cate_management','CategoryController');
-Route::resource('post_management','PostController');
+Route::resource('/post_management','PostController');
 
 //->only(['index','show'])
 ;
