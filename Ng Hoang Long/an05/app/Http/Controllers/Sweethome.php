@@ -15,7 +15,7 @@ class Sweethome extends Controller
     public function index()
     {
         $lsApartment = Sweethome::paginate(6);
-        return view('apartment.list')->with(['lsApartment' => $lsApartment]);
+        return view('sweethome.list')->with(['lsApartment' => $lsApartment]);
     }
 
     /**
