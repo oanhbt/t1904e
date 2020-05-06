@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
+
 class PostController extends Controller
 {
     /**
@@ -13,8 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-      $allPost = Post::all();
-      return view('post.list')->with(['allpost'=>$allPost]);
+        //$allPost = Post::all();
+        $allPost = Post::paginate(3);
+        return view('post.list')->with(['allPost' => $allPost]);
     }
 
     /**
@@ -24,7 +27,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        $allCategory = Category::all();
+        return view('post.create')->with(['allCategory' => $allCategory]);
     }
 
     /**
@@ -35,13 +39,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
-
-        $post=new Post();
-        $post->title=$request->title;
-        $post->save();
-        $request->session()->flash('success','Post was successfull');
-        return redirect()-> route("Post_management.index");
+        //
     }
 
     /**
@@ -63,8 +61,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-      $post=Post::find($id);
-      return view('post.edit')->with(['post_'=>$post]);
+        //
     }
 
     /**
@@ -76,14 +73,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-
-
-        $post=Post::find($id);
-        $post->title=$request->title;
-        $post->save();
-        $request->session()->flash('success','Post was updated|');
-        return redirect()-> route("post_management.index");
+        //
     }
 
     /**
@@ -92,11 +82,8 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id,Request $request)
+    public function destroy($id)
     {
-      $post=Post::find($id);
-      $post->delete();
-      $request->session()->flash('success','Post was deleted|');
-      return redirect()->route("post_management.index");
+        //
     }
 }
