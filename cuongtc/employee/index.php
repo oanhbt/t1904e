@@ -81,18 +81,18 @@
 
 
     			for($i = $start; $i < $end && $i < count($employees); $i++) {
-    				$emp = $employees[$i];$emp
+    				$emp = $employees[$i];
     			?>
 
           <tr>
-            <td><?php echo $emp['Name'];?></td>
-            <td><?php echo $emp['Email'];?></td>
-            <td><?php echo $emp['Address'];?></td>
-            <td><?php echo $emp['Phone'];?></td>
-            <td><a href="edit.php?id=<?php echo $emp['ID']?>">Sửa</a></td>
+            <td><?php echo $emp['name'];?></td>
+            <td><?php echo $emp['email'];?></td>
+            <td><?php echo $emp['address'];?></td>
+            <td><?php echo $emp['phone'];?></td>
+            <td><a href="edit.php?id=<?php echo $emp['id']?>">Sửa</a></td>
             <td>
               <form class="" action="delete.php" method="get" onsubmit="return confirm('Sure ?');">
-                <input type="hidden" name="id" value="<?php echo $emp['ID'] ?>">
+                <input type="hidden" name="id" value="<?php echo $emp['id'] ?>">
                 <input type="submit" name="" value="Xóa">
               </form>
             </td>

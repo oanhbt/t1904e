@@ -1,11 +1,11 @@
 <?php
-	$name = $_GET['name'];
+	$id = isset($_GET['id']) ? ($_GET['id']) : ($_POST['id']);
 	include "dbconnection.php";
 
-	$emp = getEmployeeByName($name);
-	if(isset($_POST['Name'])) {
+	$emp = getEmployeeById($id);
+	if(isset($_POST['name'])) {
 		// gọi hàm thực hiện update vào db, sau đó chuyển lại trang danh sách
-		updateProduct($_POST['Name'], $_POST['Email'], $_POST['Address'], $_POST['Phone']);
+		updateEmployee($_POST['name'], $_POST['email'], $_POST['address'], $_POST['phone']);
 		header("Location: index.php");
 	}
 ?>
@@ -19,13 +19,12 @@
     <div>
       <form action="edit.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data">
         <!--<input type="hidden" name="id" value="<?php echo $id ?>"/>-->
-        Tên Nhân Viên: <input type="text" name="Name" value="<?php echo $stu['Name'] ?>"/> </br>
-        Email : <input type="text" name="Email" value="<?php echo $stu['Email'] ?>" /> </br>
-        Address : <input type="text" name="Address" value="<?php echo $stu['Address'] ?>" /> </br>
-        Phone : <input type="text" name="Phone" value="<?php echo $stu['Phone'] ?>" /> </br>
+        Tên Nhân Viên: <input type="text" name="name" value="<?php echo $stu['name'] ?>"/> </br>
+        Email : <input type="text" name="email" value="<?php echo $stu['email'] ?>" /> </br>
+        Address : <input type="text" name="address" value="<?php echo $stu['address'] ?>" /> </br>
+        Phone : <input type="text" name="phone" value="<?php echo $stu['phone'] ?>" /> </br>
 
-		     Img : <input type="file" name="file"><br>
-        <button type="submit" name="button" value="submit">Tạo</button>
+		    <input type="submit" value="UPDATE"/>
       </form>
     </div>
   </body>
