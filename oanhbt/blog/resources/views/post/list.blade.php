@@ -29,7 +29,9 @@
         <td>{{$post->category->name}}</td>
         <td>{{$post->comments->count()}}</td>
         <td>
-          {{$post->is_active == 1 ? 'Pushlish' : 'Draft'}}
+          <span id="status_{{$post->id}}">
+            {{$post->is_active == 1 ? 'Pushlish' : 'Draft'}}
+          </span>
 
           <form method="POST" action="{{ route('post_management.change', $post->id) }}"
               onsubmit="confirm('Sure ? ')">
@@ -64,11 +66,30 @@
       var _id = $(element).attr("data-id");
       var _status = $(element).data('status');
 
-      $.post('api/post_management/changeStatus',
-            {id: _id, status: _status}, 
+      var data = {id: _id, status: _status, "_token" : "{{csrf_token()}}"};
+      /*$.get(
+            'post_management/changeStatus',
             function(data) {
-          alert('OK');
-      });
+              alert('OK');
+            });*/
+
+            $.ajax({
+                     type:'POST',
+                     url:'post_management/changeStatus',
+                     data: data
+                 }).done(function( msg ) {
+                   if(msg.status == "OK") {
+                     if(_status == 0) {
+                        $("#status_" + _id).html("Pushlish");
+                        $(element).data('status', 1);
+                     } else {
+                       $("#status_" + _id).html("Draft");
+                       $(element).data('status', 0) ;
+                     }
+
+                   }
+                    alert(msg.msg);
+                 });
     }
   </script>
 @endsection
