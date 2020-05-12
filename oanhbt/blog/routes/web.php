@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FrontendController@welcome');
 
 Auth::routes();
 
@@ -26,9 +24,16 @@ Route::get('/home', 'HomeController@index')->name('home');
   return view('category.list');
 });*/
 //Route::get('/cate_management', 'CategoryController@index');
-Route::resource('/cate_management', 'CategoryController');
-Route::resource('/post_management', 'PostController');
-Route::post('/post_management/change/{id}', 'PostController@change')->name('post_management.change');
+//Route::resource('/cate_management', 'CategoryController')->middleware('auth');
+
+Route::group(['middleware' => 'auth'], function() {
+  Route::resource('/cate_management', 'CategoryController');
+  Route::resource('/post_management', 'PostController');
+  Route::post('/post_management/change/{id}', 'PostController@change')->name('post_management.change');
+  Route::post('/post_management/changeStatus', 'PostController@change_api');
+});
+
+
 
 /*
 Route::get('/cate_management', 'CategoryController@index')->name('cate_management.index');
