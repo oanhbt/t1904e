@@ -17,6 +17,8 @@ Route::get('/', 'FrontendController@welcome');
 Route::get('/single.html/{id}', 'FrontendController@single');
 Route::post('post_comment', 'FrontendController@post_comment');
 
+Route::get('/category.html/{id?}', 'FrontendController@category');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
