@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FrontendController@welcom');
+Route::get('/single.html/{id}', 'FrontendController@single');
+Route::post('post_comment', 'FrontendController@post_comment');
 
 Auth::routes();
 

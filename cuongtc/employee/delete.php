@@ -1,6 +1,6 @@
 <?php
 	$id = $_GET['id'];
 	include "dbconnection.php";
-	deleteProduct($id);
+	deleteEmployee($id);
 	header("Location: index.php");
 ?>

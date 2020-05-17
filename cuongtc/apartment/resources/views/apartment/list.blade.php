@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <h1>Apartment</h1>
+  <h1>Sweet Home</h1>
     <div class="row">
 
       <div class="col-lg-9" style="margin-top: 15px">
@@ -12,7 +12,7 @@
           <div class="col-md-4 p-3">
             <div class="border p-3" style="min-height: 480px; background-color:#efefef;">
               <p>
-                <img src="images/apart.jpg" alt="" style="max-width:100%">
+                <img src="images/apartment.png" alt="er" style="max-width:100%">
               </p>
               <h2>{{$apart->name}}</h2>
               <p><strong>Địa chỉ: </strong>{{$apart->address}}</p>
@@ -28,7 +28,9 @@
       </div>
 
       <div class="col-lg-3">
-
+        <form class="form-inline">
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+        </form>
         <h4 class="my-4">Search By Area</h4>
             <div class="list-group">
                 <a href="#" class="list-group-item">District 1</a>

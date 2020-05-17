@@ -28,7 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/cate_management', 'CategoryController@index');
 Route::resource('/cate_management', 'CategoryController');
 Route::resource('/post_management', 'PostController');
-
+Route::post('/post_management/change/{id}', 'PostController@change')->name('post_management.change');
 
 /*
 Route::get('/cate_management', 'CategoryController@index')->name('cate_management.index');
