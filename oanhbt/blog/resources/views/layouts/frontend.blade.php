@@ -38,7 +38,8 @@
 
          <div class="col-12 search-form-wrap js-search-form">
            <form method="get" action="#">
-             <input type="text" id="s" class="form-control" placeholder="Search...">
+             @csrf
+             <input type="text" id="s" name="s" class="form-control" placeholder="Search...">
              <button class="search-btn" type="submit"><span class="icon-search"></span></button>
            </form>
          </div>
