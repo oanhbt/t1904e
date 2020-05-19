@@ -20,10 +20,10 @@ class CreateCommentsTable extends Migration
             $table->String('content');
             $table->String('email');
 
-            $table->integer('category_id');
+            $table->integer('post_id');
             $table->boolean('status');
 
-            $table->softDeletes();            
+            $table->softDeletes();
             $table->timestamps();
         });
     }

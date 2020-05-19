@@ -3,7 +3,7 @@
 
 	function login($u, $p) {
 		$hn = "localhost";
-		$db = "employees";
+		$db = "t1904e_employees";
 		$username = "root";
 		$password = "";
 
@@ -31,7 +31,7 @@
 
 	function getAllEmployees() {
 		$hn = "localhost";
-		$db = "employees";
+		$db = "t1904e_employees";
 		$username = "root";
 		$password = "";
 
@@ -51,26 +51,9 @@
 		return $employees;
 	}
 
-	function deleteEmployee($name) {
-		$hn = "localhost";
-		$db = "employees";
-		$username = "root";
-		$password = "";
-
-		$conn = new mysqli($hn, $username, $password, $db);
-
-		if($conn->connect_error) {
-			return false;
-		}
-		$delete = "delete from employees where name = ?";
-		$stmt = $conn->prepare($delete);
-		$stmt->bind_param("s", $name);
-		$stmt->execute();
-	}
-
 	function addEmployee($name, $email, $address) {
 		$hn = "localhost";
-		$db = "employees";
+		$db = "t1904e_employees";
 		$username = "root";
 		$password = "";
 
@@ -86,9 +69,26 @@
 		$stmt->execute();
 	}
 
-	function getEmployeeByName($name) {
+	function deleteEmployee($id) {
 		$hn = "localhost";
-		$db = "employees";
+		$db = "t1904e_employees";
+		$username = "root";
+		$password = "";
+
+		$conn = new mysqli($hn, $username, $password, $db);
+
+		if($conn->connect_error) {
+			return false;
+		}
+		$delete = "delete from employees where name = ?";
+		$stmt = $conn->prepare($delete);
+		$stmt->bind_param("i", $id);
+		$stmt->execute();
+	}
+
+	function getEmployeeById($id) {
+		$hn = "localhost";
+		$db = "t1904e_employees";
 		$username = "root";
 		$password = "";
 
@@ -99,13 +99,30 @@
 		}
 		$delete = "select * from employees where id = ? ";
 		$stmt = $conn->prepare($delete);
-		$stmt->bind_param("s", $name);
+		$stmt->bind_param("i", $id);
 		$stmt->execute();
 
 		$result = $stmt->get_result();
 
 		$Employee = $result->fetch_assoc();
 		return $Employee;
+	}
+
+	function updateEmployee ($name, $email, $address, $phone, $id) {
+			$hn = 'localhost';
+			$db = 't1904e_employees';
+			$username = 'root';
+			$password = '';
+
+			$conn = new mysqli($hn, $username, $password, $db);
+
+			if($conn->connect_error) {
+					return false;
+			}
+			$update = "update employees set name = ?, email = ?, address = ?, phone = ? where id = ?";
+			$stmt = $conn->prepare($update);
+			$stmt->bind_param("ssssi", $name, $email, $address, $phone, $id);
+			$stmt->execute();
 	}
 
 ?>

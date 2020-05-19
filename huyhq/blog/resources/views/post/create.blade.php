@@ -13,11 +13,15 @@
 
     @endif
 
-    <form method="post" action="{{route('post_management.store')}}">
+    <form method="post" action="{{route('post_management.store')}}" enctype="multipart/form-data"> <!-- Phải có entype để có thể nhận dạng file đưa lên -->
         @csrf  <!-- Bảo mật cho dữ liệu, khi dữ liệu đưa lên tự động tạo ra 1 token -->
+         <div class="form-group">
+            <label for="name">Cover Image</label>
+            <input type="file" class="form-control" id="file" name="file1" placeholder="Enter Title"/>
+        </div>
         <div class="form-group">
             <label for="name">Title</label>
-            <input type="text" class="form-control" id="name" name="title1" placeholder="Enter Title"/>
+            <input type="text" class="form-control" id="title" name="title1" placeholder="Enter Title"/>
         </div>
 
         <div class="form-group">
@@ -26,7 +30,7 @@
         </div>
         <div class="form-group">
             <label for="name">Content</label>
-            <input type="text" class="form-control" id="content" name="content1" placeholder="Enter Content">
+            <textarea rows="6" cols="150" name="content1"></textarea>
         </div>
         <div class="form-group">
             <label for="name">Category</label>
@@ -49,4 +53,8 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+
+<script>
+        CKEDITOR.replace('content1');
+    </script>
 @endsection

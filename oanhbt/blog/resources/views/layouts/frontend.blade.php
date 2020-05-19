@@ -7,17 +7,17 @@
 
    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700|Playfair+Display:400,700,900" rel="stylesheet">
 
-   <link rel="stylesheet" href="fonts/icomoon/style.css">
-   <link rel="stylesheet" href="css/bootstrap.min.css">
-   <link rel="stylesheet" href="css/magnific-popup.css">
-   <link rel="stylesheet" href="css/jquery-ui.css">
-   <link rel="stylesheet" href="css/owl.carousel.min.css">
-   <link rel="stylesheet" href="css/owl.theme.default.min.css">
-   <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-   <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-   <link rel="stylesheet" href="css/aos.css">
+   <link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
+   <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+   <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+   <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
+   <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+   <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+   <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">
+   <link rel="stylesheet" href="{{asset('fonts/flaticon/font/flaticon.css')}}">
+   <link rel="stylesheet" href="{{asset('css/aos.css')}}">
 
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="{{asset('css/style.css')}}">
  </head>
  <body>
 
@@ -50,12 +50,8 @@
          <div class="col-8 text-right">
            <nav class="site-navigation" role="navigation">
              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
-               <li><a href="category.html">Home</a></li>
-               <li><a href="category.html">Politics</a></li>
-               <li><a href="category.html">Tech</a></li>
-               <li><a href="category.html">Entertainment</a></li>
-               <li><a href="category.html">Travel</a></li>
-               <li><a href="category.html">Sports</a></li>
+               <li><a href="{{asset('/')}}">Home</a></li>
+               <li><a href="{{asset('category.html')}}">Category</a></li>
                <li class="d-none d-lg-inline-block"><a href="#" class="js-search-toggle"><span class="icon-search"></span></a></li>
              </ul>
            </nav>
@@ -83,12 +79,13 @@
              <li><a href="#">Careers</a></li>
              <li><a href="#">Subscribes</a></li>
            </ul>
+
            <ul class="list-unstyled float-left">
-             <li><a href="#">Travel</a></li>
-             <li><a href="#">Lifestyle</a></li>
-             <li><a href="#">Sports</a></li>
-             <li><a href="#">Nature</a></li>
+             @foreach($allCategory as $cate)
+             <li><a href="#">{{$cate->name}}</a></li>
+             @endforeach
            </ul>
+
          </div>
          <div class="col-md-4">
 
