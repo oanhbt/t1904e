@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
+use App\Subscriber;
+
+use App\Mail\DemoEmail;
+use Illuminate\Support\Facades\Mail;
 
 class FrontendController extends Controller
 {
@@ -52,5 +56,22 @@ class FrontendController extends Controller
 
       $allCategory = Category::all();
       return view('category')->with(['lsPost' => $lsPost, 'allCategory' => $allCategory]);
+    }
+
+    function subscribe(Request $request) {
+      $s = new Subscriber();
+      $s->email = $request->email;
+      $s->save();
+
+      // send DemoEmail
+      $objDemo = new \stdClass();
+      //$objDemo->demo_one = 'Demo One Value';
+      //$objDemo->demo_two = 'Demo Two Value';
+      $objDemo->sender = 'Blog Team';
+      $objDemo->receiver = "Guest";//'ReceiverUserName';
+
+      Mail::to($s->email)->send(new DemoEmail($objDemo));
+
+      return redirect()->back();
     }
 }
