@@ -10,9 +10,9 @@ class SurveyController extends Controller
     public function feedback(Request $request){
         $request->validate(
             [
-                'name' => 'required|max:255|min:3|unique:infomations',
-                'email'=> 'required|max:255|min:3|unique:infomations',
-                'telephone' => 'required|max:255|min:3|unique:infomations',
+                'name' => 'required|max:255|min:3|unique:surveys',
+                'email'=> 'required|max:255|min:3|unique:surveys',
+                'phone' => 'required|max:255|min:3|unique:surveys',
 
             ]
         );
@@ -22,7 +22,7 @@ class SurveyController extends Controller
         $comment->phone = $request->phone;
         $comment->feedback = $request->feedback;
         $comment->save();
-        $status = 0;;
+        $status = 0;
         if($comment->save()){
             $status = 1;
         }

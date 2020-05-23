@@ -69,10 +69,10 @@
                 <h2>SURVEY</h2>
                 <form action="feedback" class="d-flex" method="POST">
                   @csrf
-                  <input type="text" name="name" class="col-10" placeholder="Enter your email address"><br>
+                  <input type="text" name="name" class="col-10" placeholder="Enter your name"><br>
                   <input name="email" type="text" class="col-10" placeholder="Enter your email address"><br>
-                  <input type="text" name="phone" class="col-10" placeholder="Enter your email address"><br>
-                  <textarea name="feedback" id="" cols="30" rows="10"></textarea><br>
+                  <input type="text" name="phone" class="col-10" placeholder="Enter your phone"><br>
+                  <textarea name="feedback" id="" cols="30" rows="10" placeholder="Content"></textarea><br>
                   <input type="submit" class="btn btn-primary" value="Subscribe">
                 </form>
               </div>

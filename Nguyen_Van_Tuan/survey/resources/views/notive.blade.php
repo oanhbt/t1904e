@@ -1,6 +1,6 @@
 @php
 
-if ($status ==1){
+if ($status == 1){
 
 
 @endphp
