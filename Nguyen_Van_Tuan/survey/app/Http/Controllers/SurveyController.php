@@ -8,6 +8,14 @@ use App\Survey;
 class SurveyController extends Controller
 {
     public function feedback(Request $request){
+        $request->validate(
+            [
+                'name' => 'required|max:255|min:3|unique:infomations',
+                'email'=> 'required|max:255|min:3|unique:infomations',
+                'telephone' => 'required|max:255|min:3|unique:infomations',
+
+            ]
+        );
         $comment = new Survey();
         $comment->name = $request->name;
         $comment->email = $request->email;
