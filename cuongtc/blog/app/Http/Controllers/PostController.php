@@ -108,7 +108,39 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $request->validate(
+        [
+          'title' => 'required|max:255|min:3|unique:posts,title',
+          'summary' => 'required|max:255|min:3',
+          'content' => 'required'
+         ]
+      );
+
+      $post = Post::find($id);
+      $post->title = $request->title;
+      $post->summary = $request->summary;
+      $post->content = $request->content;
+      $post->category_id = $request->category;
+      $post->is_active = $request->is_active;
+
+      $file = $request->file;
+      $upload_image = '';
+      if($file != null) {
+        $image_name = $file->getClientOriginalName() . "." . $file->getClientOriginalExtension();
+        $image_name = time()."_".$image_name;
+        $image_public_path = public_path("images");
+        $file->move($image_public_path, $image_name);
+        $upload_image = "images/".$image_name;
+        $post->cover = $upload_image;
+      }
+
+      $user = auth()->user();
+      $post->user_id = $user->id;
+
+      $post->save();
+
+      $request->session()->flash('success', 'Post was successful!');
+      return redirect()->route("post_management.index");
     }
 
     /**
@@ -138,6 +170,17 @@ class PostController extends Controller
     }
 
     public function change_api(Request $request) {
-      dd('test');
+      $id = $request->id;
+      $status = $request->status;
+
+      $post = Post::find($id);
+      if($post->is_active == 1) {
+        $post->is_active = 0;
+      } else {
+        $post->is_active = 1;
+      }
+      $post->save();
+
+      return response()->json(['status' => 'OK', 'msg' => 'Update successful.'], 200);
     }
 }

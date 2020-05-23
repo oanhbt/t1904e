@@ -38,7 +38,7 @@ class SurveyController extends Controller
     {
         $request->validate(
                 [
-                   'name1' => 'required|max:255|min:3', 
+                   'name1' => 'required|max:255|min:3',
                    'feedback1' => 'required'
                 ]);
         $student = new Student();
@@ -46,10 +46,10 @@ class SurveyController extends Controller
         $student->email = $request->email1;
         $student->tel = $request->tel1;
         $student->feedback = $request->feedback1;
-        
-        
+
+
         $student->save();
-        
+
         $request->session()->flash('success','Survey was successfull');
         return redirect()->route("survey_management.index");
     }
@@ -88,7 +88,7 @@ class SurveyController extends Controller
     {
         $request->validate(
                 [
-                   'name1' => 'required|max:255|min:3', 
+                   'name1' => 'required|max:255|min:3',
                    'feedback1' => 'required'
                 ]);
         $student = Student::find($id);
@@ -96,10 +96,10 @@ class SurveyController extends Controller
         $student->email = $request->email1;
         $student->tel = $request->tel1;
         $student->feedback = $request->feedback1;
-        
-        
+
+
         $student->save();
-        
+
         $request->session()->flash('success','Survey was successfull');
         return redirect()->route("survey_management.index");
     }
@@ -117,24 +117,24 @@ class SurveyController extends Controller
         $request->session()->flash('success','Survey was deleted');
         return redirect()->route("survey_management.index");
     }
-    
+
     public function post_survey(Request $request) {
-        
+
         $request->validate(
                 [
-                   'name' => 'required|max:255|min:3', 
+                   'name' => 'required|max:255|min:3',
                    'email' => 'required',
                    'feedback' => 'required'
                 ]);
-        
+
         $student = new \App\Student();
         $student->name = $request->name;
         $student->email = $request->email;
         $student->tel = $request->tel;
         $student->feedback = $request->feedback;
-        
+
         $student->save();
-        
+
         $request->session()->flash('success', 'Survey was successfull');
         return redirect('/');
     }

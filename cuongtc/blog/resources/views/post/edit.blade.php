@@ -13,6 +13,7 @@
 
     <form method="post" action="{{route('post_management.update', $post->id)}}" enctype="multipart/form-data">
       @csrf
+      <input type="hidden" name="_method" value="PUT" />
       <div class="form-group">
         <label for="name">Cover Image</label>
         <input type="file" class="form-control" id="file" name="file" >
