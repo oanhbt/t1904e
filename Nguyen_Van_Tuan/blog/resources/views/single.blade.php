@@ -111,7 +111,10 @@
                       <h3 class="heading">Categories</h3>
                       <ul class="categories">
                         @foreach($allCategory as $cate)
-                        <li><a href="#">{{$cate->name}} <span>({{$cate->posts()->count()}})</span></a></li>
+                        <li>
+                          <a href="{{asset("category.html/$cate->id")}}">{{$cate->name}} <span>({{$cate->posts()->count()}})</span></a>
+                          <!-- <a href="{{asset(category.html)}}/{{$cate->id}}">{{$cate->name}} <span>({{$cate->posts()->count()}})</span></a> -->
+                        </li>
                         @endforeach
                       </ul>
                     </div>

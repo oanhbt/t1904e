@@ -38,6 +38,7 @@
 
          <div class="col-12 search-form-wrap js-search-form">
            <form method="get" action="#">
+             @csrf
              <input type="text" id="s" class="form-control" placeholder="Search...">
              <button class="search-btn" type="submit"><span class="icon-search"></span></button>
            </form>
@@ -51,8 +52,8 @@
            <nav class="site-navigation" role="navigation">
              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
                <li><a href="{{asset('/')}}">Home</a></li>
-               <li><a href="category.html">Politics</a></li>
-               <li><a href="category.html">Tech</a></li>
+               <li><a href="{{asset('category.html')}}">Category</a></li>
+               <li><a href="">Tech</a></li>
                <li><a href="category.html">Entertainment</a></li>
                <li><a href="category.html">Travel</a></li>
                <li><a href="category.html">Sports</a></li>

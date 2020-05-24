@@ -1,100 +1,309 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.fontend')
 
-        <title>Laravel</title>
+@section ('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+@endsection
+<div class="site-section bg-light">
+  <div class="container">
+    <div class="row align-items-stretch retro-layout-2">
+      <div class="col-md-4">
+        <a href="single.html" class="h-entry mb-30 v-height gradient" style="background-image: url('images/img_1.jpg');">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+          <div class="text">
+            <h2>The AI magically removes moving objects from videos.</h2>
+            <span class="date">July 19, 2019</span>
+          </div>
+        </a>
+        <a href="single.html" class="h-entry v-height gradient" style="background-image: url('images/img_2.jpg');">
 
-            .full-height {
-                height: 100vh;
-            }
+          <div class="text">
+            <h2>The AI magically removes moving objects from videos.</h2>
+            <span class="date">July 19, 2019</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="single.html" class="h-entry img-5 h-100 gradient" style="background-image: url('images/img_v_1.jpg');">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+          <div class="text">
+            <div class="post-categories mb-3">
+              <span class="post-category bg-danger">Travel</span>
+              <span class="post-category bg-primary">Food</span>
             </div>
+            <h2>The AI magically removes moving objects from videos.</h2>
+            <span class="date">July 19, 2019</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="single.html" class="h-entry mb-30 v-height gradient" style="background-image: url('images/img_3.jpg');">
+
+          <div class="text">
+            <h2>The 20 Biggest Fintech Companies In America 2019</h2>
+            <span class="date">July 19, 2019</span>
+          </div>
+        </a>
+        <a href="single.html" class="h-entry v-height gradient" style="background-image: url('images/img_4.jpg');">
+
+          <div class="text">
+            <h2>The 20 Biggest Fintech Companies In America 2019</h2>
+            <span class="date">July 19, 2019</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="site-section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2>Recent Posts</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="entry2">
+          <a href="single.html"><img src="images/img_1.jpg" alt="Image" class="img-fluid rounded"></a>
+          <div class="excerpt">
+          <span class="post-category text-white bg-secondary mb-3">Politics</span>
+
+          <h2><a href="single.html">The AI magically removes moving objects from videos.</a></h2>
+          <div class="post-meta align-items-center text-left clearfix">
+            <figure class="author-figure mb-0 mr-3 float-left"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+            <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>
+            <span>&nbsp;-&nbsp; July 19, 2019</span>
+          </div>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+            <p><a href="#">Read More</a></p>
+          </div>
         </div>
-    </body>
-</html>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="entry2">
+          <a href="single.html"><img src="images/img_2.jpg" alt="Image" class="img-fluid rounded"></a>
+          <div class="excerpt">
+          <span class="post-category text-white bg-success mb-3">Nature</span>
+
+          <h2><a href="single.html">The AI magically removes moving objects from videos.</a></h2>
+          <div class="post-meta align-items-center text-left clearfix">
+            <figure class="author-figure mb-0 mr-3 float-left"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+            <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>
+            <span>&nbsp;-&nbsp; July 19, 2019</span>
+          </div>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+            <p><a href="#">Read More</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="entry2">
+          <a href="single.html"><img src="images/img_3.jpg" alt="Image" class="img-fluid rounded"></a>
+          <div class="excerpt">
+          <span class="post-category text-white bg-warning mb-3">Travel</span>
+
+          <h2><a href="single.html">The AI magically removes moving objects from videos.</a></h2>
+          <div class="post-meta align-items-center text-left clearfix">
+            <figure class="author-figure mb-0 mr-3 float-left"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+            <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>
+            <span>&nbsp;-&nbsp; July 19, 2019</span>
+          </div>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+            <p><a href="#">Read More</a></p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 mb-4">
+        <div class="entry2">
+          <a href="single.html"><img src="images/img_1.jpg" alt="Image" class="img-fluid rounded"></a>
+          <div class="excerpt">
+          <span class="post-category text-white bg-secondary mb-3">Politics</span>
+
+          <h2><a href="single.html">The AI magically removes moving objects from videos.</a></h2>
+          <div class="post-meta align-items-center text-left clearfix">
+            <figure class="author-figure mb-0 mr-3 float-left"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+            <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>
+            <span>&nbsp;-&nbsp; July 19, 2019</span>
+          </div>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+            <p><a href="#">Read More</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="entry2">
+          <a href="single.html"><img src="images/img_2.jpg" alt="Image" class="img-fluid rounded"></a>
+          <div class="excerpt">
+          <span class="post-category text-white bg-success mb-3">Nature</span>
+
+          <h2><a href="single.html">The AI magically removes moving objects from videos.</a></h2>
+          <div class="post-meta align-items-center text-left clearfix">
+            <figure class="author-figure mb-0 mr-3 float-left"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+            <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>
+            <span>&nbsp;-&nbsp; July 19, 2019</span>
+          </div>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+            <p><a href="#">Read More</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="entry2">
+          <a href="single.html"><img src="images/img_4.jpg" alt="Image" class="img-fluid rounded"></a>
+          <div class="excerpt">
+          <span class="post-category text-white bg-danger mb-3">Sports</span>
+
+          <h2><a href="single.html">The AI magically removes moving objects from videos.</a></h2>
+          <div class="post-meta align-items-center text-left clearfix">
+            <figure class="author-figure mb-0 mr-3 float-left"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+            <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>
+            <span>&nbsp;-&nbsp; July 19, 2019</span>
+          </div>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+            <p><a href="#">Read More</a></p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 mb-4">
+        <div class="entry2">
+          <a href="single.html"><img src="images/img_1.jpg" alt="Image" class="img-fluid rounded"></a>
+          <div class="excerpt">
+          <span class="post-category text-white bg-success mb-3">Nature</span>
+
+          <h2><a href="single.html">The AI magically removes moving objects from videos.</a></h2>
+          <div class="post-meta align-items-center text-left clearfix">
+            <figure class="author-figure mb-0 mr-3 float-left"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+            <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>
+            <span>&nbsp;-&nbsp; July 19, 2019</span>
+          </div>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+            <p><a href="#">Read More</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="entry2">
+          <a href="single.html"><img src="images/img_2.jpg" alt="Image" class="img-fluid rounded"></a>
+          <div class="excerpt">
+          <span class="post-category text-white bg-danger mb-3">Sports</span>
+          <span class="post-category text-white bg-secondary mb-3">Tech</span>
+
+          <h2><a href="single.html">The AI magically removes moving objects from videos.</a></h2>
+          <div class="post-meta align-items-center text-left clearfix">
+            <figure class="author-figure mb-0 mr-3 float-left"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+            <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>
+            <span>&nbsp;-&nbsp; July 19, 2019</span>
+          </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+            <p><a href="#">Read More</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="entry2">
+          <a href="single.html"><img src="images/img_4.jpg" alt="Image" class="img-fluid rounded"></a>
+          <div class="excerpt">
+          <span class="post-category text-white bg-danger mb-3">Sports</span>
+          <span class="post-category text-white bg-warning mb-3">Lifestyle</span>
+
+          <h2><a href="single.html">The AI magically removes moving objects from videos.</a></h2>
+          <div class="post-meta align-items-center text-left clearfix">
+            <figure class="author-figure mb-0 mr-3 float-left"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+            <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>
+            <span>&nbsp;-&nbsp; July 19, 2019</span>
+          </div>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+            <p><a href="#">Read More</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center pt-5 border-top">
+      <div class="col-md-12">
+        <div class="custom-pagination">
+          <span>1</span>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <span>...</span>
+          <a href="#">15</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="site-section bg-light">
+  <div class="container">
+
+    <div class="row align-items-stretch retro-layout">
+
+      <div class="col-md-5 order-md-2">
+        <a href="single.html" class="hentry img-1 h-100 gradient" style="background-image: url('images/img_4.jpg');">
+          <span class="post-category text-white bg-danger">Travel</span>
+          <div class="text">
+            <h2>The 20 Biggest Fintech Companies In America 2019</h2>
+            <span>February 12, 2019</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-7">
+
+        <a href="single.html" class="hentry img-2 v-height mb30 gradient" style="background-image: url('images/img_1.jpg');">
+          <span class="post-category text-white bg-success">Nature</span>
+          <div class="text text-sm">
+            <h2>The 20 Biggest Fintech Companies In America 2019</h2>
+            <span>February 12, 2019</span>
+          </div>
+        </a>
+
+        <div class="two-col d-block d-md-flex">
+          <a href="single.html" class="hentry v-height img-2 gradient" style="background-image: url('images/img_2.jpg');">
+            <span class="post-category text-white bg-primary">Sports</span>
+            <div class="text text-sm">
+              <h2>The 20 Biggest Fintech Companies In America 2019</h2>
+              <span>February 12, 2019</span>
+            </div>
+          </a>
+          <a href="single.html" class="hentry v-height img-2 ml-auto gradient" style="background-image: url('images/img_3.jpg');">
+            <span class="post-category text-white bg-warning">Lifestyle</span>
+            <div class="text text-sm">
+              <h2>The 20 Biggest Fintech Companies In America 2019</h2>
+              <span>February 12, 2019</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="site-section bg-lightx">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-md-5">
+        <div class="subscribe-1 ">
+          <h2>Subscribe to our newsletter</h2>
+          <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nesciunt error illum a explicabo, ipsam nostrum.</p>
+          <form action="#" class="d-flex">
+            <input type="text" class="form-control" placeholder="Enter your email address">
+            <input type="submit" class="btn btn-primary" value="Subscribe">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

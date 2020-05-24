@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
+use App\Subscribe;
+use App\Mail\DemoEmail;
+use Illuminate\Support\Facades\Mail;
 
 class FrontendController extends Controller {
 
@@ -58,6 +61,21 @@ class FrontendController extends Controller {
             $search = $request->search;
             $lsPost = Post::where('is_active', '1')->where('title','like','%' .$search. '%')->paginate(3);
         return view('search')->with(['lsPost' => $lsPost]);
+    }
+    public function subscribe(Request $request) {
+        $s = new Subscribe();
+        $s->email = $request->email;
+        $s->save();
+        
+        $objDemo = new \stdClass();
+        $objDemo->demo_one = 'Demo One Value';
+        $objDemo->demo_two = 'Demo Two Value';
+        $objDemo->sender = 'Blog'; ///SenderUserName
+        $objDemo->receiver = 'Hi Guys'; ///ReceiverUserName
+ 
+        Mail::to($s->email)->send(new DemoEmail($objDemo));
+        
+        return redirect()->back();
     }
 
 }

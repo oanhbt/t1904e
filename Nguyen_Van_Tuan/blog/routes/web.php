@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'FrontendController@welcom');
+Route::get('/category.html/{id?}', 'FrontendController@category');
 Route::get('/single.html/{id}', 'FrontendController@single');
 Route::post('post_comment', 'FrontendController@post_comment');
+Route::post('subscribe', 'FrontendController@subscribe');
 
 Auth::routes();
 
