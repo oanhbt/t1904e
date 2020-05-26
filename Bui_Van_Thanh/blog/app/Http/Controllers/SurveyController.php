@@ -36,14 +36,20 @@ class SurveyController extends Controller
      */
     public function store(Request $request)
     {
-        $su = new Survey();
-        $su->name = $request->name;
-        $su->phone = $request->phone;
-        $su->email = $request->email;
-        $su->feedback = $request->content;
-        //$su->created_at = Carbon::now();
-        $su->save();
-        return response()->json(['status' => 1, 'message' => 'Feed back succesfully!']);
+        try {
+            $su = new Survey();
+            $su->name = $request->name;
+            $su->phone = $request->phone;
+            $su->email = $request->email;
+            $su->feedback = $request->content;
+            $su->save();
+            return response()->json(['status' => 1, 'message' => 'Feed back succesfully!']);
+        } catch (\Exception $e) {
+
+            return $e->getMessage();
+
+            return response()->json(['status' => 0, 'message' => 'Error']);
+        }
     }
 
     /**

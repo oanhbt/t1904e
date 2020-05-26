@@ -39,7 +39,7 @@
         var email = $.trim($('#txtEmail').val());
         var phone = $.trim($('#txtPhone').val());
         var content = $.trim($('#txtContent').val());
-        var token = $('meta[name="csrf-token"]').attr('content');
+        //  var token = $('meta[name="csrf-token"]').attr('contclasent');
 
         if (name.length == 0 || email.length == 0 || phone.length == 0 || content.length == 0) {
             swal({
@@ -63,15 +63,25 @@
             },
             type: 'POST',
             success: function(res) {
-                swal({
-                    title: res.message,
-                    text: "",
-                    icon: "success"
-                }).then((success) => {
-                    if (success) {
-                        location.reload();
-                    }
-                })
+                if (res.status == 1) {
+                    swal({
+                        title: res.message,
+                        text: "",
+                        icon: "success"
+                    }).then((success) => {
+                        if (success) {
+                            location.reload();
+
+                        }
+                    })
+                } else {
+                    swal({
+                        title: res.message,
+                        text: "Send feedback fail",
+                        icon: "error"
+                    });
+                }
+
             }
         })
     }
