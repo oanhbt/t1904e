@@ -19,6 +19,8 @@ Route::post('post_comment','FrontendController@post_comment');
 Route::get('/category.html/{id?}','FrontendController@category');
 Route::get('search/{search?}','FrontendController@search');
 
+Route::post('subscribe','FrontendController@subscribe');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

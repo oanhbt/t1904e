@@ -29,6 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/cate_management', 'CategoryController');
 Route::resource('/post_management', 'PostController');
 Route::resource('/apartment_info','ApartmentController');
+Route::resource('/survey', 'SurveyController');
 
 /*
 Route::get('/cate_management', 'CategoryController@index')->name('cate_management.index');
